@@ -1,16 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {    
-  console.log('Middleware demo, log the time... Time:', Date.now());
-  next();
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.get('/get-sometext', (req, res, next) => {
+  res.send('<form action="/log-posted-text" method="POST"><input type="text" name="sometext"/><button type="submit">Post</button></form>');  
 });
 
-app.use((req, res, next) => {  
-  console.log('Next step, send a greeting...');
-  return res.send('Ohai!');
-  next(); // this never executes since I return the response I send...
+app.post('/log-posted-text', (req, res, next) => {
+  console.log(req.body);
+  res.redirect('/');
 });
 
 app.get('/', (req, res) => res.send('Hello World!'))

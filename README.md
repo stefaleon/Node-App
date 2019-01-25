@@ -17,3 +17,10 @@
 
 
 ## 03 Middleware use demonstration
+
+## 04 Posting and parsing the request body
+
+* `npm install body-parser --save`
+* Use the body-parser middleware.
+* Demonstrate a get and a post route. 
+
