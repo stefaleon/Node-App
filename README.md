@@ -29,3 +29,8 @@
 ## 05 Express Router
 
 * Organize the routes with Express Router.
+
+
+## 06 Not Found
+
+* Set a final use after the routes, to display a 404 message for the unhandled requests.
